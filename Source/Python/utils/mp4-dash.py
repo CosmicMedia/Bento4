@@ -1007,6 +1007,8 @@ def OutputHls(options, set_attributes, audio_sets, video_sets, subtitles_sets, s
                                            video_track.frame_rate))
                 if supplemental_codec_string != '':
                     master_playlist_file.write(',SUPPLEMENTAL-CODECS="{}"'.format(supplemental_codec_string))
+                if video_track.label != '':
+                    master_playlist_file.write(',NAME="{}"'.format(video_track.label))
                 master_playlist_file.write('\n')
                 master_playlist_file.write(media_playlist_path+'\n')
         else:
@@ -1022,6 +1024,8 @@ def OutputHls(options, set_attributes, audio_sets, video_sets, subtitles_sets, s
                                        video_track.frame_rate))
             if supplemental_codec_string != '':
                 master_playlist_file.write(',SUPPLEMENTAL-CODECS="{}"'.format(supplemental_codec_string))
+            if video_track.label != '':
+                master_playlist_file.write(',NAME="{}"'.format(video_track.label))
             master_playlist_file.write('\n')
             master_playlist_file.write(media_playlist_path+'\n')
 
